@@ -5,7 +5,7 @@ const path = require('path');
 const model1 = require('./model1');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; 
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -66,6 +66,6 @@ app.get('/page5', (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => { // Listen on all network interfaces
+  console.log(`🚀 Server running on port ${PORT}`);
 });
