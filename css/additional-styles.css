@@ -1,0 +1,173 @@
+/* Additional styles for specific pages */
+
+/* Diagnostic Analytics Page */
+.diagnostic-content h2 {
+  color: var(--primary-color);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.diagnostic-content h3 {
+  color: var(--secondary-color);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.diagnostic-content ul {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.diagnostic-content p {
+  margin-bottom: 1.5rem;
+}
+
+/* Predictive Analytics Page */
+.model-card {
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+body.dark-mode .model-card {
+  background-color: #1e1e1e;
+}
+
+.model-card h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 0.5rem;
+}
+
+.model-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.model-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.model-description {
+  flex: 2;
+  min-width: 300px;
+}
+
+.model-description p {
+  margin-bottom: 1rem;
+}
+
+/* Prescriptive Analytics Page */
+.prescriptive-content h2 {
+  color: var(--primary-color);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prescriptive-content ul {
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prescriptive-content p {
+  margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .model-content {
+    flex-direction: column;
+  }
+
+  .model-image,
+  .model-description {
+    width: 100%;
+  }
+}
+/* Add these to additional-styles.css */
+
+/* For page1.html */
+.prescriptive-content ul {
+  list-style-type: disc;
+}
+
+/* For all pages - modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: var(--light-color);
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+}
+
+body.dark-mode .modal-content {
+  background-color: #2a2a2a;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: var(--text-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+select, input[type=range] {
+  width: 100%;
+  padding: 8px;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--dark-color);
+  color: var(--light-text);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: var(--primary-color);
+}
+
+#predictionResult {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(255,255,255,0.1);
+}

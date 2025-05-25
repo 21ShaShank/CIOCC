@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction - Competitive Influence On Customer Churn</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>CIOCC</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="page1.html"class="active">Introduction</a></li>
+                    <li><a href="page2.html">Descriptive</a></li>
+                    <li><a href="page3.html">Diagnostic</a></li>
+                    <li><a href="page4.html">Predictive</a></li>
+                    <li><a href="page5.html">Prescriptive</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="openChurnModal()">Churn Predictor</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </header>
+
+    <div id="churnModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeChurnModal()">&times;</span>
+    <h2>Customer Churn Prediction</h2>
+    <p>Enter customer details to predict churn probability</p>
+    <form id="churnForm">
+      <div class="form-group">
+        <label>Gender</label>
+        <select name="gender">
+          <option>Male</option><option>Female</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Senior Citizen</label>
+        <select name="senior">
+          <option>No</option><option>Yes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Partner</label>
+        <select name="partner">
+          <option>No</option><option>Yes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Dependents</label>
+        <select name="dependents">
+          <option>No</option><option>Yes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tenure (months): <span id="tenureValue">12</span></label>
+        <input type="range" min="0" max="72" value="12" name="tenure" oninput="document.getElementById('tenureValue').innerText = this.value">
+      </div>
+      <div class="form-group">
+        <label>Phone Service</label>
+        <select name="phone_service">
+          <option>Yes</option><option>No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Internet Service</label>
+        <select name="internet">
+          <option>DSL</option><option>Fiber Optic</option><option>None</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Contract</label>
+        <select name="contract">
+          <option>Month-to-Month</option><option>One year</option><option>Two year</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Monthly Charges: $<span id="chargeValue">70</span></label>
+        <input type="range" min="0" max="150" value="70" name="charges" oninput="document.getElementById('chargeValue').innerText = this.value">
+      </div>
+      <div class="form-group">
+        <label>Competitive Index: <span id="compValue">3</span></label>
+        <input type="range" min="0" max="10" value="3" name="competitive_index" oninput="document.getElementById('compValue').innerText = this.value">
+      </div>
+      <div class="form-group">
+        <label>Promotion Response</label>
+        <select name="promotion">
+          <option>Positive</option><option>Neutral</option><option>Negative</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-submit">Predict Churn</button>
+    </form>
+    <div id="predictionResult"></div>
+  </div>
+</div>
+
+    <section class="page-content">
+        <div class="container">
+            <h1>Introduction to Competitive Influence On Customer Churn</h1>
+            
+            <p>Customer churn, the rate at which customers stop doing business with a company, is a critical metric for businesses across industries. Understanding and mitigating churn is essential for maintaining a healthy customer base and ensuring sustainable growth. This research focuses specifically on how competitive factors influence customer churn rates and what strategies can be implemented to address these challenges.</p>
+            
+            <h2>Why This Topic?</h2>
+            
+            <p>In today's highly competitive business landscape, customers have more choices than ever before. A competitor's new offering, pricing strategy, or marketing campaign can quickly influence customer loyalty and trigger churn. By understanding the competitive dynamics that drive customer decisions, businesses can develop more effective retention strategies.</p>
+            
+            <p>Our research aims to provide a comprehensive analysis of how competitive factors impact customer churn, using advanced analytics techniques to identify patterns, predict at-risk customers, and prescribe targeted interventions. Through this approach, we hope to equip businesses with the insights and tools they need to maintain customer loyalty in competitive markets.</p>
+            
+            <p>The significance of this topic extends beyond just preventing revenue loss. By understanding competitive influences on churn, businesses can:</p>
+            
+            <ul class="prescriptive-content">
+                <li>Develop more resilient customer relationships</li>
+                <li>Create more compelling value propositions</li>
+                <li>Allocate marketing and retention resources more efficiently</li>
+                <li>Identify competitive threats earlier</li>
+                <li>Transform potential churn situations into opportunities for strengthening customer loyalty</li>
+            </ul>
+            
+            <p>Throughout this research, we will explore various aspects of competitive influence on customer churn, from descriptive analysis of historical patterns to predictive modeling of future churn risks and prescriptive recommendations for effective interventions.</p>
+            
+            <div class="nav-buttons">
+                <a href="index.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Previous</a>
+                <a href="page2.html" class="nav-btn">Next <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Competitive Influence On Customer Churn. All rights reserved.Designed By Aditya Shankar</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

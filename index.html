@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitive Influence On Customer Churn</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>CIOCC</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="page1.html">Introduction</a></li>
+                    <li><a href="page2.html">Descriptive</a></li>
+                    <li><a href="page3.html">Diagnostic</a></li>
+                    <li><a href="page4.html">Predictive</a></li>
+                    <li><a href="page5.html">Prescriptive</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="openChurnModal()">Churn Predictor</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </header>
+
+    <div id="churnModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeChurnModal()">&times;</span>
+    <h2>Customer Churn Prediction</h2>
+    <p>Enter customer details to predict churn probability</p>
+    <form id="churnForm">
+      <div class="form-group">
+        <label>Gender</label>
+        <select name="gender">
+          <option>Male</option><option>Female</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Senior Citizen</label>
+        <select name="senior">
+          <option>No</option><option>Yes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Partner</label>
+        <select name="partner">
+          <option>No</option><option>Yes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Dependents</label>
+        <select name="dependents">
+          <option>No</option><option>Yes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tenure (months): <span id="tenureValue">12</span></label>
+        <input type="range" min="0" max="72" value="12" name="tenure" oninput="document.getElementById('tenureValue').innerText = this.value">
+      </div>
+      <div class="form-group">
+        <label>Phone Service</label>
+        <select name="phone_service">
+          <option>Yes</option><option>No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Internet Service</label>
+        <select name="internet">
+          <option>DSL</option><option>Fiber Optic</option><option>None</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Contract</label>
+        <select name="contract">
+          <option>Month-to-Month</option><option>One year</option><option>Two year</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Monthly Charges: $<span id="chargeValue">70</span></label>
+        <input type="range" min="0" max="150" value="70" name="charges" oninput="document.getElementById('chargeValue').innerText = this.value">
+      </div>
+      <div class="form-group">
+        <label>Competitive Index: <span id="compValue">3</span></label>
+        <input type="range" min="0" max="10" value="3" name="competitive_index" oninput="document.getElementById('compValue').innerText = this.value">
+      </div>
+      <div class="form-group">
+        <label>Promotion Response</label>
+        <select name="promotion">
+          <option>Positive</option><option>Neutral</option><option>Negative</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-submit">Predict Churn</button>
+    </form>
+    <div id="predictionResult"></div>
+  </div>
+</div>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Competitive Influence On Customer Churn</h1>
+            <p>Don't wait until your customers leave to do something about it. Our analytics approach allows you to predict churn using machine learning models, so you can retain more revenue.</p>
+        </div>
+    </section>
+
+    <section class="stakeholders">
+        <div class="container">
+            <h2>Our Team</h2>
+            <div class="grid">
+                <div class="stakeholder-card">
+                    <img src="./assets/Ma'am1 .jpg" alt="Mentor">
+                    <h3>Satwinder Kaur</h3>
+                    <p>Department Of Computer Applications</p>
+                    <p>satwinder27kaur@gmail.com</p>
+                </div>
+                <div class="stakeholder-card">
+                    <img src="./assets/Aditya PIC.JPG" alt="Team Member 1">
+                    <h3>Aditya Shankar</h3>
+                    <p>Department Of Computer Applications</p>
+                    <p>bewithaadi@gmail.com</p>
+                </div>
+                <div class="stakeholder-card">
+                    <img src="./assets/Goel.jpg" alt="Team Member 2">
+                    <h3>Sailesh Goel</h3>
+                    <p>Department Of Computer Applications</p>
+                    <p>vanshgoel5869@gmail.com</p>
+                </div>
+                <div class="stakeholder-card">
+                    <img src="./assets/Anushka.jpg" alt="Team Member 3">
+                    <h3>Anushka Arora</h3>
+                    <p>Department Of Computer Applications</p>
+                    <p>anushkaaarora407@gmail.com</p>
+                </div>
+                <div class="stakeholder-card">
+                    <img src="./assets/Student.png" alt="Team Member 4">
+                    <h3>Sourabh Kumar</h3>
+                    <p>Department Of Computer Applications</p>
+                    <p>sourabh345kumar@gmail.com</p>
+                </div>
+                <div class="stakeholder-card">
+                    <img src="./assets/Manveer.jpg" alt="Team Member 5">
+                    <h3>Manveer Singh</h3>
+                    <p>Department Of Computer Applications</p>
+                    <p>manveersingh2k05@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Explore Our Research</h2>
+            <p>Discover how competitive factors influence customer churn and learn strategies to mitigate it.</p>
+            <a href="page1.html" class="btn">Get Started <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Competitive Influence On Customer Churn. All rights reserved. Designed By Aditya Shankar</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Analytics - Competitive Influence On Customer Churn</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>CIOCC</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="page1.html">Introduction</a></li>
+                    <li><a href="page2.html">Descriptive</a></li>
+                    <li><a href="page3.html" class="active">Diagnostic</a></li>
+                    <li><a href="page4.html">Predictive</a></li>
+                    <li><a href="page5.html">Prescriptive</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="openChurnModal()">Churn Predictor</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </header>
+
+    <div id="churnModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeChurnModal()">&times;</span>
+    <h2>Customer Churn Prediction</h2>
+    <p>Enter customer details to predict churn probability</p>
+    <form id="churnForm">
+      <div class="form-group">
+        <label>Gender</label>
+        <select name="gender">
+          <option>Male</option><option>Female</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Senior Citizen</label>
+        <select name="senior">
+          <option>No</option><option>Yes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Partner</label>
+        <select name="partner">
+          <option>No</option><option>Yes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Dependents</label>
+        <select name="dependents">
+          <option>No</option><option>Yes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tenure (months): <span id="tenureValue">12</span></label>
+        <input type="range" min="0" max="72" value="12" name="tenure" oninput="document.getElementById('tenureValue').innerText = this.value">
+      </div>
+      <div class="form-group">
+        <label>Phone Service</label>
+        <select name="phone_service">
+          <option>Yes</option><option>No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Internet Service</label>
+        <select name="internet">
+          <option>DSL</option><option>Fiber Optic</option><option>None</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Contract</label>
+        <select name="contract">
+          <option>Month-to-Month</option><option>One year</option><option>Two year</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Monthly Charges: $<span id="chargeValue">70</span></label>
+        <input type="range" min="0" max="150" value="70" name="charges" oninput="document.getElementById('chargeValue').innerText = this.value">
+      </div>
+      <div class="form-group">
+        <label>Competitive Index: <span id="compValue">3</span></label>
+        <input type="range" min="0" max="10" value="3" name="competitive_index" oninput="document.getElementById('compValue').innerText = this.value">
+      </div>
+      <div class="form-group">
+        <label>Promotion Response</label>
+        <select name="promotion">
+          <option>Positive</option><option>Neutral</option><option>Negative</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-submit">Predict Churn</button>
+    </form>
+    <div id="predictionResult"></div>
+  </div>
+</div>
+
+    <section class="page-content">
+        <div class="container">
+            <h1>Diagnostic Analytics</h1>
+            
+            <div class="diagnostic-content">
+                <h2>1. Key Drivers of Churn Identified Through Data Analysis</h2>
+                <h3>Churn Correlations with Key Variables</h3>
+                <ul>
+                    <li><strong>What Happened:</strong> Customers with shorter tenures (1–6 months) have a significantly higher churn rate than those with longer tenures (24 months).</li>
+                    <li><strong>Why It Happened:</strong> Newer customers may have experienced issues that were not anticipated during the sign-up phase, such as higher-than-expected service interruptions or unmet expectations. The initial service experience plays a critical role in customer retention.</li>
+                </ul>
+                <p><strong>Diagnostic Insight:</strong> Customer churn can be linked to poor onboarding or early service experiences. Additionally, longer contract durations (e.g., 2-year contracts) showed a lower churn rate compared to month-to-month contracts, suggesting that customers who commit to longer-term plans are less likely to leave. This could be due to the inconvenience of switching services and the stability offered by longer contracts.</p>
+                
+                <h2>2. Impact of Competitor Offers</h2>
+                <p><strong>What Happened:</strong> A notable portion of customers who churned cited better offers from competitors as the main reason for leaving.</p>
+                <ul>
+                    <li><strong>Why It Happened:</strong> Competitive pricing and feature-rich offerings from competitors (such as better internet speeds or lower prices) directly impacted the decision to leave. Many customers who churned had received more attractive deals from competitors in terms of bundled services or discounts.</li>
+                </ul>
+                <p><strong>Diagnostic Insight:</strong> Customers in regions where competitive activity (e.g., aggressive marketing, lower prices) is high experienced a higher churn rate. This suggests that market competition plays a key role in customer retention, especially when the service provider cannot match competitor offers.</p>
+                
+                <h2>3. Service and Support-Related Churn</h2>
+                <p><strong>What Happened:</strong> Customers who interacted with customer service more frequently (e.g., filing complaints, seeking technical support) were more likely to churn.</p>
+                <ul>
+                    <li><strong>Why It Happened:</strong> High interaction with support usually indicates poor service quality or unresolved issues, leading to frustration. For example, customers who needed frequent tech support (related to internet outages or slow speeds) had a higher churn rate. A poor experience during these interactions (e.g., long response times, unresolved issues) contributed to dissatisfaction.</li>
+                </ul>
+                <p><strong>Diagnostic Insight:</strong> A lack of proactive customer service or failure to resolve technical issues effectively could lead to dissatisfaction and eventual churn. Improving first-call resolution rates and reducing the number of issues requiring repeated interactions could help in retention.</p>
+                
+                <h2>4. Churn Based on Payment Methods</h2>
+                <p><strong>What Happened:</strong> Customers using Electronic Checks as their payment method had a higher churn rate compared to those using Bank Transfers or Credit Cards.</p>
+                <ul>
+                    <li><strong>Why It Happened:</strong> Electronic checks could indicate less commitment from customers, as this payment method is often seen as a less automatic or less integrated payment option. This group might also be more susceptible to service interruptions or issues with processing payments, which could lead to dissatisfaction.</li>
+                </ul>
+                <p><strong>Diagnostic Insight:</strong> A shift towards automated, reliable payment methods (like bank transfers or credit cards) could help reduce churn among this segment. Customers using electronic checks might be more price-sensitive or have unstable payment history, which could affect their retention.</p>
+                
+                <h2>5. Contract Type and Its Role in Churn</h2>
+                <p><strong>What Happened:</strong> Customers with month-to-month contracts showed the highest churn rates, while those with 1-year and 2-year contracts had significantly lower churn.</p>
+                <ul>
+                    <li><strong>Why It Happened:</strong> Customers on month-to-month contracts have the flexibility to leave without penalties, which can be both a positive and negative aspect. While this gives customers more freedom, it also makes them more likely to switch if they find a better offer. Longer contracts, on the other hand, provide more stability and fewer opportunities for customers to leave without incurring fees.</li>
+                </ul>
+                <p><strong>Diagnostic Insight:</strong> Offering incentives (e.g., discounts, added features) for customers to opt into longer contracts could help reduce churn. Additionally, customers who were initially on month-to-month plans and then moved to longer contracts exhibited better retention, suggesting that contractual commitment plays a strong role in reducing churn.</p>
+                
+                <h2>6. Geographic Impact on Churn</h2>
+                <p><strong>What Happened:</strong> Regions with a high concentration of competitors and more aggressive market pricing strategies saw higher churn rates.</p>
+                <ul>
+                    <li><strong>Why It Happened:</strong> Customers in these regions likely experienced greater price sensitivity or were more aware of competitive offers. If the service provider's offerings weren't competitive in terms of pricing, quality, or features, customers were more inclined to leave.</li>
+                </ul>
+                <p><strong>Diagnostic Insight:</strong> Expanding the service offerings or improving pricing models in high-competition areas could help retain customers. A deep dive into specific regions with higher churn can help identify whether the issue is service quality, marketing strategies, or price competitiveness.</p>
+                
+                <h2>7. Demographic Factors and Churn</h2>
+                <p><strong>What Happened:</strong> Senior citizens exhibited a higher churn rate compared to younger customers.</p>
+                <ul>
+                    <li><strong>Why It Happened:</strong> Senior citizens may have more difficulty navigating complex service offerings or troubleshooting technical issues. If customer service or technical support isn't sufficiently tailored to their needs, it can lead to frustration and eventual churn.</li>
+                </ul>
+                <p><strong>Diagnostic Insight:</strong> There could be an opportunity to improve customer experience for senior citizens by offering more personalized support, simpler plans, or better onboarding processes to help them feel more comfortable with the service.</p>
+            </div>
+            
+            <div class="nav-buttons">
+                <a href="page2.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Previous</a>
+                <a href="page4.html" class="nav-btn">Next <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Competitive Influence On Customer Churn. All rights reserved.Designed By Aditya Shankar</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

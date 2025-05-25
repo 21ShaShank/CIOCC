@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescriptive Analytics - Competitive Influence On Customer Churn</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>CIOCC</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="page1.html">Introduction</a></li>
+                    <li><a href="page2.html">Descriptive</a></li>
+                    <li><a href="page3.html">Diagnostic</a></li>
+                    <li><a href="page4.html">Predictive</a></li>
+                    <li><a href="page5.html" class="active">Prescriptive</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="openChurnModal()">Churn Predictor</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </header>
+
+    <div id="churnModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeChurnModal()">&times;</span>
+    <h2>Customer Churn Prediction</h2>
+    <p>Enter customer details to predict churn probability</p>
+    <form id="churnForm">
+      <div class="form-group">
+        <label>Gender</label>
+        <select name="gender">
+          <option>Male</option><option>Female</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Senior Citizen</label>
+        <select name="senior">
+          <option>No</option><option>Yes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Partner</label>
+        <select name="partner">
+          <option>No</option><option>Yes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Dependents</label>
+        <select name="dependents">
+          <option>No</option><option>Yes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tenure (months): <span id="tenureValue">12</span></label>
+        <input type="range" min="0" max="72" value="12" name="tenure" oninput="document.getElementById('tenureValue').innerText = this.value">
+      </div>
+      <div class="form-group">
+        <label>Phone Service</label>
+        <select name="phone_service">
+          <option>Yes</option><option>No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Internet Service</label>
+        <select name="internet">
+          <option>DSL</option><option>Fiber Optic</option><option>None</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Contract</label>
+        <select name="contract">
+          <option>Month-to-Month</option><option>One year</option><option>Two year</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Monthly Charges: $<span id="chargeValue">70</span></label>
+        <input type="range" min="0" max="150" value="70" name="charges" oninput="document.getElementById('chargeValue').innerText = this.value">
+      </div>
+      <div class="form-group">
+        <label>Competitive Index: <span id="compValue">3</span></label>
+        <input type="range" min="0" max="10" value="3" name="competitive_index" oninput="document.getElementById('compValue').innerText = this.value">
+      </div>
+      <div class="form-group">
+        <label>Promotion Response</label>
+        <select name="promotion">
+          <option>Positive</option><option>Neutral</option><option>Negative</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-submit">Predict Churn</button>
+    </form>
+    <div id="predictionResult"></div>
+  </div>
+</div>
+
+    <section class="page-content">
+        <div class="container">
+            <h1>Prescriptive Analytics</h1>
+            
+            <p>Prescriptive analytics goes beyond predicting what will happen to recommending actions that should be taken to achieve desired outcomes. Based on our descriptive, diagnostic, and predictive analyses, we have developed the following recommendations to mitigate customer churn influenced by competitive factors.</p>
+            
+            <div class="prescriptive-content">
+                <h2>1. Recommendation: Improve Customer Onboarding for New Users</h2>
+                <p><strong>What Happened:</strong> Shorter tenures (1–6 months) were associated with high churn rates, suggesting that customers who have a poor onboarding experience are more likely to leave early.</p>
+                <ul>
+                    <li><strong>Why It Happened:</strong> New customers may have been dissatisfied with the service quality or faced issues in the early stages (e.g., service setup, poor communication during onboarding).</li>
+                </ul>
+                <p><strong>Prescriptive Action:</strong></p>
+                <ul>
+                    <li><strong>Enhance Onboarding Process:</strong> Provide a guided onboarding experience with clear instructions, easy access to support, and personalized service setup. Ensure that customers feel welcomed and understand how to get the most out of their services.</li>
+                    <li><strong>Introduce Incentives:</strong> Offer loyalty bonuses or discounts for customers who stay beyond their first 3–6 months. For instance, a discount on the second or third month of service.</li>
+                    <li><strong>Regular Check-ins:</strong> Implement a system for proactive customer service outreach (e.g., a check-in call or email after the first month to address any concerns).</li>
+                </ul>
+                <p><strong>Expected Impact:</strong> This will help new customers build a strong relationship with the service and reduce the likelihood of them leaving early.</p>
+                
+                <h2>2. Recommendation: Address Competitive Offers through Better Pricing and Bundling</h2>
+                <p><strong>What Happened:</strong> A significant number of customers who churned mentioned better offers from competitors as a key reason for leaving.</p>
+                <ul>
+                    <li><strong>Why It Happened:</strong> Competitors may be offering better pricing, more features, or bundled services that attract customers.</li>
+                </ul>
+                <p><strong>Prescriptive Action:</strong></p>
+                <ul>
+                    <li><strong>Pricing Strategy Adjustment:</strong> Analyze competitor pricing models and align or slightly improve your pricing to be more competitive. Introduce special promotional rates for customers in competitive regions.</li>
+                    <li><strong>Service Bundling:</strong> Create value bundles that combine high-demand services (e.g., internet, TV, tech support) at a discounted price, making it harder for competitors to offer more attractive deals.</li>
+                    <li><strong>Loyalty Programs:</strong> Introduce a loyalty program that rewards customers for staying longer. Offering points or benefits for every renewal or year spent could incentivize long-term commitment.</li>
+                </ul>
+                <p><strong>Expected Impact:</strong> By offering better pricing or more attractive service bundles, customers will have less incentive to leave for competitors, especially if their existing service is tailored to their needs.</p>
+                
+                <h2>3. Recommendation: Enhance Customer Support and Reduce Service Issues</h2>
+                <p><strong>What Happened:</strong> High interactions with customer support were correlated with increased churn. Frequent complaints and unresolved issues lead to dissatisfaction.</p>
+                <ul>
+                    <li><strong>Why It Happened:</strong> Customers who had to reach out to support multiple times for the same issue, such as technical difficulties, often became frustrated and left.</li>
+                </ul>
+                <p><strong>Prescriptive Action:</strong></p>
+                <ul>
+                    <li><strong>Improve First-Call Resolution:</strong> Train support teams to resolve customer issues effectively on the first contact, minimizing the need for multiple interactions.</li>
+                    <li><strong>Expand Self-Service Options:</strong> Enhance the self-service portal with better FAQs, video tutorials, troubleshooting guides, and community forums where customers can find solutions on their own.</li>
+                    <li><strong>Proactive Service Monitoring:</strong> Use real-time service monitoring tools to identify issues (e.g., internet outages) before customers notice, and alert them in advance, offering solutions or compensation.</li>
+                </ul>
+                <p><strong>Expected Impact:</strong> By reducing the number of support interactions and improving the service experience, customer satisfaction will improve, and churn will decrease.</p>
+                
+                <h2>Conclusion</h2>
+                <p>Competitive influence on customer churn is a complex but manageable challenge. By implementing a comprehensive analytics approach that encompasses descriptive, diagnostic, predictive, and prescriptive methodologies, businesses can gain a deeper understanding of the competitive factors driving churn and develop targeted strategies to mitigate it.</p>
+                <p>Our research demonstrates that customer retention in competitive markets requires a multi-faceted approach that addresses onboarding, pricing, service quality, and personalized engagement. By focusing on these key areas and leveraging data-driven insights, businesses can not only reduce churn but also build stronger, more resilient customer relationships that withstand competitive pressures.</p>
+                <p>The future of customer retention lies in the ability to anticipate competitive threats and proactively address customer needs before they consider switching to alternatives. With the right analytics tools and strategic approach, businesses can transform potential churn situations into opportunities for strengthening customer loyalty and driving sustainable growth.</p>
+            </div>
+            
+            <div class="nav-buttons">
+                <a href="page4.html" class="nav-btn"><i class="fas fa-arrow-left"></i> Previous</a>
+                <a href="index.html" class="nav-btn">Home <i class="fas fa-home"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Competitive Influence On Customer Churn. All rights reserved.Designed By Aditya Shankar</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
